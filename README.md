@@ -1,5 +1,7 @@
 ## Datamaps
 
+__NOTE: This repo is just for testing purposes__
+
 This is an htmlwidgets binding for the datamaps package.
 
 ### Simple Map
