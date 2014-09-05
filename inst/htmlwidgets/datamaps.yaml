@@ -1,0 +1,9 @@
+dependencies:
+  - name: d3
+    version: 3.4.11
+    src: "htmlwidgets/lib/d3"
+    script: [d3.v3.min.js, topojson.v1.min.js]
+  - name: datamaps
+    version: 0.3.4
+    src: "htmlwidgets/lib/datamaps"
+    script: datamaps.all.js
