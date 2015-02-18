@@ -40,19 +40,21 @@ runApp(list(ui = ui, server = server), launch.browser = rstudio::viewer)
 
 Status: WORKING
 
+This is to test if specifying external data using the `attachment` mechanism works.
+
 ```r
 datamaps(
-  scope = 'pcs', 
-  geographyConfig = list(dataUrl = 'data/pcs.json'), 
-  width = 900, height = 800
+  scope = 'pcs',
+  geographyConfig = list(dataUrl = htmlwidgets:::attachment("data/pcs.json"))
 )
 ```
 
 ### Shiny App with External Data
 
-Status: NOT WORKING
+Status: WORKING
 
-> Uncaught Error: Attachment dataUrl/1 not found in document 
+This is to test if specifying external data in a shiny app using the `attachment` mechanism works.
+
 
 ```r
 library(shiny)
@@ -65,7 +67,9 @@ server = function(input, output, session){
   output$mymap <- renderDatamaps(
     datamaps(
       scope = 'pcs', 
-      geographyConfig = list(dataUrl = 'data/pcs.json'),
+      geographyConfig = list(
+        dataUrl = htmlwidgets:::attachment('data/pcs.json')
+      ),
       fills = list(defaultFill = input$def_fill)
     )
   )
@@ -73,3 +77,4 @@ server = function(input, output, session){
 
 runApp(list(ui = ui, server = server), launch.browser = rstudio::viewer)
 ```
+

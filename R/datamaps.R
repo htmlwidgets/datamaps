@@ -5,19 +5,8 @@
 #' @export
 datamaps <- function(..., geographyConfig = list(), width = 700, height = 400){
   payload = list(..., geographyConfig = geographyConfig)
-  if (!is.null(payload$geographyConfig$dataUrl)){
-    dep = htmltools::htmlDependency(
-      name = 'dataUrl',
-      version = '0.1.0',
-      src = normalizePath(dirname(payload$geographyConfig$dataUrl)),
-      attachment = basename(payload$geographyConfig$dataUrl)
-    )
-  } else {
-    dep = NULL
-  }
   htmlwidgets::createWidget('datamaps', payload, 
-    width = width, height = height,                          
-    dependencies = dep
+    width = width, height = height
   )
 }
 

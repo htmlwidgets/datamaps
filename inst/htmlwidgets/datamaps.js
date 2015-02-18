@@ -1,14 +1,9 @@
 HTMLWidgets.widget({
   name: "datamaps",
   type: "output",
-  renderValue: function(el, payload){
+  renderValue: function(el, x){
     el.innerHTML = ""
-    payload.element = el
-    if (payload.geographyConfig.dataUrl){
-      console.log('attaching dataUrl')
-      payload.geographyConfig.dataUrl = HTMLWidgets.getAttachmentUrl('dataUrl', 1)
-      console.log(HTMLWidgets.getAttachmentUrl('dataUrl', 1))
-    }
-    var map = new Datamap(payload)
+    x.element = el
+    var map = new Datamap(x)
   }
 })
